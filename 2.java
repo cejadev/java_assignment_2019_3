@@ -1,5 +1,5 @@
 import java.util.*;
-public class PiglatinWord
+class PiglatinWord
 {
     public static void main(String args[])
     {
@@ -14,20 +14,23 @@ public class PiglatinWord
     }
     static String convert(String word){
         String piglatin="";
-        int flag=0;
         for(int i=0;i<word.length();i++)
         {
             char x=word.charAt(i);
-            if(x=='A' || x=='E' || x=='I' || x=='O' ||x=='U')
+            if(i==0){
+            if(x=='A' || x=='E' || x=='I' || x=='O' ||x=='U'){
+                piglatin = word+"WAY";
+                break;
+            }}
+	        if(x=='A' || x=='E' || x=='I' || x=='O' ||x=='U')
             {
                 piglatin=word.substring(i)+word.substring(0,i)+"AY";
-                flag=1;
                 break;
             }
-        }
-        if(flag==0)
-        {
-            piglatin=word+"AY";
+            else{
+                piglatin= word+"AY";
+            }
+
         }
         return piglatin;
     }
